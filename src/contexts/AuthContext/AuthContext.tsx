@@ -1,47 +1,49 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import { auth, firebase } from 'src/services/firebase';
 
 type User = {
-  id: string,
-  name: string,
-  avatar: string,
-}
+  id: string;
+  name: string;
+  avatar: string;
+};
 
-type AuthContextType = {
-  user: User | undefined,
+export type AuthContextType = {
+  user: User | undefined;
   signInWithGoogle: () => Promise<void>;
-}
+};
 
 type AuthContextProviderProps = {
   children: ReactNode;
-}
+};
 
 export const AuthContext = createContext({} as AuthContextType);
 
-const AuthContextProvider = (props: AuthContextProviderProps) => {
+const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
+  children
+}: AuthContextProviderProps) => {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        const { displayName, photoURL, uid } = user;
+    const unsubscribe = auth.onAuthStateChanged(value => {
+      if (value) {
+        const { displayName, photoURL, uid } = value;
 
         if (!displayName || !photoURL) {
           throw new Error('Missing information from Google Account.');
         }
-  
+
         setUser({
           id: uid,
           name: displayName,
-          avatar: photoURL,
-        }) 
+          avatar: photoURL
+        });
       }
     });
 
     return () => {
       unsubscribe();
-    }
-  }, [])
+    };
+  }, []);
 
   const signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -58,16 +60,16 @@ const AuthContextProvider = (props: AuthContextProviderProps) => {
       setUser({
         id: uid,
         name: displayName,
-        avatar: photoURL,
-      }) 
-    }  
-  }
+        avatar: photoURL
+      });
+    }
+  };
 
   return (
     <AuthContext.Provider value={{ user, signInWithGoogle }}>
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
-}
+};
 
 export default AuthContextProvider;

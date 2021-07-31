@@ -1,3 +1,3 @@
-import RoomCode from "./RoomCode";
+import RoomCode from './RoomCode';
 
 export default RoomCode;

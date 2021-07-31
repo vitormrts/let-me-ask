@@ -1,3 +1,4 @@
+import React from 'react';
 import 'src/styles/room.scss';
 import { useHistory, useParams } from 'react-router';
 import LogoImg from 'src/assets/icons/logo.svg';
@@ -10,43 +11,45 @@ import { database } from 'src/services/firebase';
 
 type RoomParams = {
   id: string;
-}
+};
 
-const AdminRoom = () => {
+const AdminRoom: React.FC = () => {
   const history = useHistory();
   const { id: roomId } = useParams<RoomParams>();
-  const { title, questions } = useRoom(roomId); 
+  const { title, questions } = useRoom(roomId);
 
   const handleEndRoom = async () => {
     await database.ref(`rooms/${roomId}`).update({
-      endedAt: new Date(),
-    })
+      endedAt: new Date()
+    });
 
     history.push('/');
-  }
+  };
 
   const handleDeleteQuestion = async (questionId: string) => {
-    if (window.confirm('Tem certeza que você dseja excluir essa pergunta?')) {
+    if (
+      global.window.confirm('Tem certeza que você dseja excluir essa pergunta?')
+    ) {
       await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
     }
-  }
+  };
 
   const handleCheckQuestionAsAnwered = async (questionId: string) => {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isAnswered: true,
-    })
-  }
+      isAnswered: true
+    });
+  };
 
   const handleHighlightQuestion = async (questionId: string) => {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-      isHighlighted: true,
-    })
-  }
-  
+      isHighlighted: true
+    });
+  };
+
   const questionsMap = questions.map(question => {
     const { id, author, isAnswered, isHighlighted, content } = question;
     return (
-      <Question 
+      <Question
         key={id}
         content={content}
         author={author}
@@ -59,34 +62,33 @@ const AdminRoom = () => {
               type="button"
               onClick={() => handleCheckQuestionAsAnwered(question.id)}
             >
-              <img src={CheckImg} alt="Marcar pergunta como respondida"/>
+              <img src={CheckImg} alt="Marcar pergunta como respondida" />
             </button>
             <button
               type="button"
               onClick={() => handleHighlightQuestion(question.id)}
             >
-              <img src={AnswerImg} alt="Dar destaque à pergunta"/>
+              <img src={AnswerImg} alt="Dar destaque à pergunta" />
             </button>
           </>
         )}
-        <button
-          type="button"
-          onClick={() => handleDeleteQuestion(question.id)}
-        >
-          <img src={DeleteImg} alt="Remover pergunta"/>
+        <button type="button" onClick={() => handleDeleteQuestion(question.id)}>
+          <img src={DeleteImg} alt="Remover pergunta" />
         </button>
       </Question>
-    )
-  })
+    );
+  });
 
   return (
     <div id="page-room">
       <header>
         <div className="content">
-          <img src={LogoImg} alt="Letmeask"/>
+          <img src={LogoImg} alt="Letmeask" />
           <div>
             <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
+            <Button isOutlined onClick={handleEndRoom}>
+              Encerrar sala
+            </Button>
           </div>
         </div>
       </header>
@@ -95,12 +97,10 @@ const AdminRoom = () => {
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>4 perguntas</span>}
         </div>
-        <div className="question-list">
-          {questionsMap}
-        </div>
+        <div className="question-list">{questionsMap}</div>
       </main>
     </div>
-  )
-}
+  );
+};
 
 export default AdminRoom;

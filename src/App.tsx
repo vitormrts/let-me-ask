@@ -1,8 +1,9 @@
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AuthContextProvider } from './contexts';
-import { AdminRoom, Home, NewRoom, Room } from "./pages";
+import { AdminRoom, Home, NewRoom, Room } from './pages';
 
-const App = () => (
+const App: React.FC = () => (
   <BrowserRouter>
     <AuthContextProvider>
       <Switch>
@@ -14,6 +15,5 @@ const App = () => (
     </AuthContextProvider>
   </BrowserRouter>
 );
-
 
 export default App;

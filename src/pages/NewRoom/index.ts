@@ -1,3 +1,3 @@
-import NewRoom from "./NewRoom";
+import NewRoom from './NewRoom';
 
 export default NewRoom;
