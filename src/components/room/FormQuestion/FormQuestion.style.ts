@@ -4,6 +4,13 @@ import styled from 'styled-components';
 export const Form = styled.form`
   max-width: 1120px;
   margin: 0 auto;
+  padding: 0px 32px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    padding: 0px 24px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    padding: 0px 16px;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -15,6 +22,10 @@ export const TextArea = styled.textarea`
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   resize: vertical;
   min-height: 138px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    min-height: 90px;
+    font-size: 14px;
+  }
 `;
 
 export const FormFooter = styled.footer`
@@ -22,6 +33,12 @@ export const FormFooter = styled.footer`
   justify-content: space-between;
   align-items: center;
   margin-top: 16px;
+  button {
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+      padding: 0 16px;
+      max-height: 36px;
+    }
+  }
 `;
 
 export const UserInfo = styled.div`
@@ -40,12 +57,18 @@ export const Name = styled.span`
   color: ${({ theme }) => theme.text.main};
   font-weight: 500;
   font-size: 14px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 12px;
+  }
 `;
 
 export const SendQuestion = styled.span`
   font-size: 14px;
   color: ${({ theme }) => theme.span.default};
   font-weight: 500;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 12px;
+  }
 `;
 
 export const Login = styled.button`

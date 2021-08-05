@@ -7,6 +7,14 @@ type LikeButtonProps = {
 export const QuestionList = styled.div`
   margin: 24px auto 0px auto;
   max-width: 1120px;
+  padding: 0px 32px;
+  margin-bottom: 32px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    padding: 0px 24px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    padding: 0px 16px;
+  }
 `;
 
 export const LikeButton = styled.button<LikeButtonProps>`

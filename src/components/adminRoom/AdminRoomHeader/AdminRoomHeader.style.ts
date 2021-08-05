@@ -12,9 +12,16 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    flex-direction: column;
+  }
 `;
 
-export const LogoWrapper = styled.div``;
+export const LogoWrapper = styled.div`
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    margin-bottom: 16px;
+  }
+`;
 
 export const Logo = styled(DefaultImage)`
   max-height: 45px;
@@ -25,5 +32,9 @@ export const Info = styled.div`
   gap: 16px;
   button {
     height: 40px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    flex-direction: column;
+    gap: 8px;
   }
 `;

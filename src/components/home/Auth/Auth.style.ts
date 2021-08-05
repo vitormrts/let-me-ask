@@ -7,6 +7,9 @@ export const Authentication = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    padding-bottom: 32px;
+  }
 `;
 
 export const Content = styled.div`
@@ -31,15 +34,22 @@ export const CreateRoom = styled.button`
   cursor: pointer;
   border: 0;
   transition: filter 0.2s;
-
   &:hover {
     filter: brightness(0.9);
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    margin-top: 24px;
+    font-size: 14px;
   }
 `;
 
 export const GoogleImage = styled(DefaultImage)`
   margin-right: 16px;
   max-width: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    max-width: 20px;
+    margin-right: 8px;
+  }
 `;
 
 export const Form = styled.form`
@@ -56,16 +66,17 @@ export const CodeInput = styled.input`
   background: ${({ theme }) => theme.colors.secondary};
   border: 1px solid ${({ theme }) => theme.input.default};
   width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 14px;
+  }
 `;
 
 export const Separator = styled.div`
   font-size: 14px;
   color: ${({ theme }) => theme.input.default};
-
   margin: 32px 0;
   display: flex;
   align-items: center;
-
   &::before {
     content: '';
     flex: 1;
@@ -80,5 +91,8 @@ export const Separator = styled.div`
     height: 1px;
     background: ${({ theme }) => theme.input.default};
     margin-left: 16px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    margin: 16px 0;
   }
 `;

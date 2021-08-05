@@ -10,10 +10,7 @@ const RoomTitle: React.FC<RoomTitleProps> = ({ roomId }) => {
   const { title, questions } = useRoom(roomId);
   return (
     <Container>
-      <Title>
-        Sala
-        {title}
-      </Title>
+      <Title>Sala {title}</Title>
       {questions.length > 0 && (
         <LengthQuestions>{questions.length} perguntas</LengthQuestions>
       )}

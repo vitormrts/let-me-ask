@@ -1,6 +1,11 @@
 import { DefaultTheme } from 'styled-components';
 
 const vanilla: DefaultTheme = {
+  breakpoints: {
+    xl: 1199,
+    lg: 991,
+    md: 767
+  },
   background: {
     default: '#f8f8f8',
     secondary: '#fff'

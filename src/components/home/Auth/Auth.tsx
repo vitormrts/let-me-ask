@@ -3,7 +3,7 @@ import GoogleIcon from 'src/assets/icons/google-icon.svg';
 import { useAuth } from 'src/hooks';
 import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
-import { Aside, Button, AuthContainer, LogoImage } from 'src/components/common';
+import { Button, LogoImage } from 'src/components/common';
 import {
   Authentication,
   Content,
@@ -52,28 +52,25 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <AuthContainer>
-      <Aside />
-      <Authentication>
-        <Content>
-          <LogoImage />
-          <CreateRoom onClick={handleCreateRoom} className="create-room">
-            <GoogleImage src={GoogleIcon} alt="Logo do Google" />
-            Crie sua sala com o Google
-          </CreateRoom>
-          <Separator>ou entre em uma sala</Separator>
-          <Form onSubmit={handleJoinRoom}>
-            <CodeInput
-              type="text"
-              placeholder="Digite o código da sala"
-              onChange={event => setRoomCode(event.target.value)}
-              value={roomCode}
-            />
-            <Button type="submit">Entrar na sala</Button>
-          </Form>
-        </Content>
-      </Authentication>
-    </AuthContainer>
+    <Authentication>
+      <Content>
+        <LogoImage />
+        <CreateRoom onClick={handleCreateRoom} className="create-room">
+          <GoogleImage src={GoogleIcon} alt="Logo do Google" />
+          Crie sua sala com o Google
+        </CreateRoom>
+        <Separator>ou entre em uma sala</Separator>
+        <Form onSubmit={handleJoinRoom}>
+          <CodeInput
+            type="text"
+            placeholder="Digite o código da sala"
+            onChange={event => setRoomCode(event.target.value)}
+            value={roomCode}
+          />
+          <Button type="submit">Entrar na sala</Button>
+        </Form>
+      </Content>
+    </Authentication>
   );
 };
 

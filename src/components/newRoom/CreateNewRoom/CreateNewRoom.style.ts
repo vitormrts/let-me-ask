@@ -7,6 +7,9 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    padding-bottom: 32px;
+  }
 `;
 
 export const Content = styled.div`
@@ -26,6 +29,9 @@ export const Title = styled.h2`
   font-size: 24px;
   margin: 64px 0 24px;
   font-family: 'Poppins', sans-serif;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
+    margin-top: 24px;
+  }
 `;
 
 export const Form = styled.form`
@@ -42,6 +48,9 @@ export const CodeInput = styled.input`
   background: ${({ theme }) => theme.colors.secondary};
   border: 1px solid ${({ theme }) => theme.input.default};
   width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 14px;
+  }
 `;
 
 export const Enter = styled.p`

@@ -10,6 +10,9 @@ export const Name = styled.span`
   margin-left: 8px;
   color: ${({ theme }) => theme.text.secondary};
   font-size: 14px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 12px;
+  }
 `;
 
 export const Container = styled.div<ContainerProps>`
@@ -41,6 +44,9 @@ export const Container = styled.div<ContainerProps>`
 
 export const ContentParagraph = styled.p`
   color: ${({ theme }) => theme.text.main};
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 14px;
+  }
 `;
 
 export const Footer = styled.footer`
@@ -72,5 +78,8 @@ export const Buttons = styled.div`
     &:hover {
       filter: brightness(0.5);
     }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    gap: 8px;
   }
 `;

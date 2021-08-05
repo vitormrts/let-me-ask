@@ -34,4 +34,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   img {
     margin-right: 8px;
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 14px;
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    font-size: 12px;
+  }
 `;
