@@ -11,7 +11,7 @@ export const TextArea = styled.textarea`
   border: 0;
   padding: 16px;
   border-radius: 8px;
-  background: #fefefe;
+  background: ${({ theme }) => theme.textarea.default};
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   resize: vertical;
   min-height: 138px;
@@ -37,21 +37,21 @@ export const IconAvatar = styled(DefaultImage)`
 
 export const Name = styled.span`
   margin-left: 8px;
-  color: #29292e;
+  color: ${({ theme }) => theme.text.main};
   font-weight: 500;
   font-size: 14px;
 `;
 
 export const SendQuestion = styled.span`
   font-size: 14px;
-  color: #737388;
+  color: ${({ theme }) => theme.span.default};
   font-weight: 500;
 `;
 
 export const Login = styled.button`
   background: transparent;
   border: none;
-  color: #835afd;
+  color: ${({ theme }) => theme.colors.main};
   text-decoration: underline;
   font-size: 14px;
   font-weight: 500;

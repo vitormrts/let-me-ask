@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const Container = styled.aside`
   flex: 7;
 
-  background: #835afd;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.main};
+  color: ${({ theme }) => theme.colors.secondary};
 
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ export const AskQuestions = styled.p`
   font-size: 24px;
   line-height: 32px;
   margin-top: 16px;
-  color: #f8f8f8;
+  color: ${({ theme }) => theme.background.default};
 `;
 
 export const Image = styled(DefaultImage)`

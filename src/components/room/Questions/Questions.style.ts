@@ -12,14 +12,14 @@ export const QuestionList = styled.div`
 export const LikeButton = styled.button<LikeButtonProps>`
   display: flex;
   align-items: flex-end;
-  color: #737380;
+  color: ${({ theme }) => theme.text.secondary};
   gap: 8px
     ${({ liked }) =>
       liked &&
       css`
-        color: #835afd;
+        color: ${({ theme }) => theme.colors.main};
         svg path {
-          stroke: #835afd;
+          stroke: ${({ theme }) => theme.colors.main};
         }
       `};
 `;

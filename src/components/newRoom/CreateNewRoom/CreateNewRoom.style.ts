@@ -18,7 +18,7 @@ export const Content = styled.div`
   text-align: center;
 
   a {
-    color: #e559f9;
+    color: ${({ theme }) => theme.colors.pink};
   }
 `;
 
@@ -39,13 +39,13 @@ export const CodeInput = styled.input`
   height: 50px;
   border-radius: 8px;
   padding: 0 16px;
-  background: #fff;
-  border: 1px solid #a8a8b3;
+  background: ${({ theme }) => theme.colors.secondary};
+  border: 1px solid ${({ theme }) => theme.input.default};
   width: 100%;
 `;
 
 export const Enter = styled.p`
   font-size: 14px;
-  color: #737380;
+  color: ${({ theme }) => theme.text.secondary};
   margin-top: 16px;
 `;

@@ -8,7 +8,7 @@ type ContainerProps = {
 
 export const Name = styled.span`
   margin-left: 8px;
-  color: #737380;
+  color: ${({ theme }) => theme.text.secondary};
   font-size: 14px;
 `;
 
@@ -24,23 +24,23 @@ export const Container = styled.div<ContainerProps>`
   ${({ isAnswered }) =>
     isAnswered &&
     css`
-      background-color: #dbdcdd;
+      background-color: ${({ theme }) => theme.question.answered};
     `}
 
   ${({ isHighlighted, isAnswered }) =>
     isHighlighted &&
     !isAnswered &&
     css`
-      background: #f4f0ff;
-      border: 1px solid #835afd;
+      background: ${({ theme }) => theme.question.highlighted}
+      border: 1px solid ${({ theme }) => theme.colors.main};
       ${Name} {
-        color: #29292e;
+        color: ${({ theme }) => theme.text.main};
       }
     `}
 `;
 
 export const ContentParagraph = styled.p`
-  color: #29292e;
+  color: ${({ theme }) => theme.text.main};
 `;
 
 export const Footer = styled.footer`

@@ -5,14 +5,14 @@ export const Button = styled.button`
   height: 40px;
   border-radius: 8px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #835afd;
+  background: ${({ theme }) => theme.colors.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.main};
   cursor: pointer;
   display: flex;
 `;
 
 export const ImageWrapper = styled.div`
-  background: #835afd;
+  background: ${({ theme }) => theme.colors.main};
   padding: 0 12px;
   display: flex;
   height: 100%;

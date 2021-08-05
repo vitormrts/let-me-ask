@@ -8,8 +8,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   height: 50px;
   border-radius: 8px;
   font-weight: 500;
-  background: #835afd;
-  color: #fff;
+  background: ${({ theme }) => theme.colors.main};
+  color: ${({ theme }) => theme.colors.secondary};
   padding: 0 32px;
   display: flex;
   justify-content: center;
@@ -20,9 +20,9 @@ export const StyledButton = styled.button<StyledButtonProps>`
   ${({ isOutlined }) =>
     isOutlined &&
     css`
-      background-color: #fff;
-      border: 1px solid #835afd;
-      color: #835afd;
+      background-color: ${({ theme }) => theme.colors.secondary};
+      border: 1px solid ${({ theme }) => theme.colors.main};
+      color: ${({ theme }) => theme.colors.main};
     `}
   &:disabled {
     opacity: 0.6;
