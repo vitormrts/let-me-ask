@@ -1,6 +1,6 @@
 import React from 'react';
 import CopyImg from 'src/assets/icons/copy.svg';
-import './RoomCode.scss';
+import { Button, ImageWrapper, Room } from './RoomCode.style';
 
 type RoomCodeProps = {
   code: string;
@@ -12,12 +12,12 @@ const RoomCode: React.FC<RoomCodeProps> = ({ code }) => {
   };
 
   return (
-    <button className="room-code" onClick={copyRoomCodeToClipboard}>
-      <div>
+    <Button className="room-code" onClick={copyRoomCodeToClipboard}>
+      <ImageWrapper>
         <img src={CopyImg} alt="Copy room code" />
-      </div>
-      <span>Sala #{code}</span>
-    </button>
+      </ImageWrapper>
+      <Room>Sala #{code}</Room>
+    </Button>
   );
 };
 

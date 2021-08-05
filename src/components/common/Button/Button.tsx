@@ -1,19 +1,18 @@
 import React, { ButtonHTMLAttributes } from 'react';
-
-import './Button.scss';
+import { StyledButton } from './Button.style';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   isOutlined?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({ isOutlined = false, ...props }) => (
-  <button
+  <StyledButton
     type="submit"
     aria-label={props['aria-label']}
-    className={`button ${isOutlined && 'outlined'}`}
+    isOutlined={isOutlined}
   >
     {props.children}
-  </button>
+  </StyledButton>
 );
 
 export default Button;

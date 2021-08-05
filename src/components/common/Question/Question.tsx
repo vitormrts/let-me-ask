@@ -1,5 +1,13 @@
-import React, { ReactNode } from 'react';
-import './Question.scss';
+import React from 'react';
+import {
+  Buttons,
+  Container,
+  ContentParagraph,
+  Footer,
+  Image,
+  Name,
+  UserInfo
+} from './Question.style';
 
 type QuestionProps = {
   content: string;
@@ -7,7 +15,6 @@ type QuestionProps = {
     name: string;
     avatar: string;
   };
-  children?: ReactNode;
   isAnswered?: boolean;
   isHighlighted?: boolean;
 };
@@ -19,20 +26,16 @@ const Question: React.FC<QuestionProps> = ({
   isHighlighted = false,
   children
 }) => (
-  <div
-    className={`question ${isAnswered && 'answered'} ${
-      isHighlighted && !isAnswered && 'highlighted'
-    }`}
-  >
-    <p>{content}</p>
-    <footer>
-      <div className="user-info">
-        <img src={author.avatar} alt={author.name} />
-        <span>{author.name}</span>
-      </div>
-      <div>{children}</div>
-    </footer>
-  </div>
+  <Container isAnswered={isAnswered} isHighlighted={isHighlighted}>
+    <ContentParagraph>{content}</ContentParagraph>
+    <Footer>
+      <UserInfo className="user-info">
+        <Image src={author.avatar} alt={author.name} />
+        <Name>{author.name}</Name>
+      </UserInfo>
+      <Buttons>{children}</Buttons>
+    </Footer>
+  </Container>
 );
 
 export default Question;

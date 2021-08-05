@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { auth, firebase } from 'src/services/firebase';
 
 type User = {
@@ -12,15 +12,9 @@ export type AuthContextType = {
   signInWithGoogle: () => Promise<void>;
 };
 
-type AuthContextProviderProps = {
-  children: ReactNode;
-};
-
 export const AuthContext = createContext({} as AuthContextType);
 
-const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
-  children
-}: AuthContextProviderProps) => {
+const AuthContextProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
