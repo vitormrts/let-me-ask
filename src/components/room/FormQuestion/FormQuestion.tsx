@@ -2,6 +2,8 @@ import React, { FormEvent, useState } from 'react';
 import { Button } from 'src/components/common';
 import { useAuth } from 'src/hooks';
 import { database } from 'src/services/firebase';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Form,
   FormFooter,
@@ -25,6 +27,7 @@ const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
     event.preventDefault();
 
     if (newQuestion.trim() === '') {
+      toast.error('Enter any question');
       return;
     }
 
@@ -49,7 +52,7 @@ const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
   return (
     <Form onSubmit={handleSendQuestion}>
       <TextArea
-        placeholder="O que você quer perguntar?"
+        placeholder="What do you want to ask?"
         onChange={event => setNewQuestion(event.target.value)}
         value={newQuestion}
       />
@@ -61,14 +64,23 @@ const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
           </UserInfo>
         ) : (
           <SendQuestion>
-            Para enviar uma pergunta,
-            <Login>faça seu login</Login>
+            To submit a question,
+            <Login>login</Login>
           </SendQuestion>
         )}
         <Button type="submit" disabled={!user}>
-          Enviar pergunta
+          Submit question
         </Button>
       </FormFooter>
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Form>
   );
 };

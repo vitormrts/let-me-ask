@@ -46,13 +46,8 @@ const useRoom = (roomId: string): RoomType => {
     questions: []
   });
 
-  useEffect(() => {
-    const roomRef = database.ref(`rooms/${roomId}`);
-
-    roomRef.on('value', ref => {
-      const databaseRoom = ref.val();
-      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions;
-
+  const getParsedQuestions = (firebaseQuestions: FirebaseQuestions) => {
+    try {
       const parsedQuestions = Object.entries(firebaseQuestions).map(
         ([key, value]) => {
           const { author, content, isAnswered, isHighlighted } = value;
@@ -69,10 +64,22 @@ const useRoom = (roomId: string): RoomType => {
           };
         }
       );
+      return parsedQuestions;
+    } catch (error) {
+      return [];
+    }
+  };
+
+  useEffect(() => {
+    const roomRef = database.ref(`rooms/${roomId}`);
+
+    roomRef.on('value', ref => {
+      const databaseRoom = ref.val();
+      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions;
 
       const newRoom: RoomType = {
         title: databaseRoom.title ?? '',
-        questions: parsedQuestions ?? []
+        questions: getParsedQuestions(firebaseQuestions)
       };
 
       setRoom(newRoom);

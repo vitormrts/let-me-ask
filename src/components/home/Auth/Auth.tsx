@@ -4,6 +4,8 @@ import { useAuth } from 'src/hooks';
 import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
 import { Button, LogoImage, SwitcherTheme } from 'src/components/common';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Authentication,
   Content,
@@ -12,7 +14,9 @@ import {
   CreateRoom,
   GoogleImage,
   Separator,
-  AuthHeader
+  AuthHeader,
+  AllRoomsButton,
+  AllRooms
 } from './Auth.style';
 
 const Auth: React.FC = () => {
@@ -32,20 +36,19 @@ const Auth: React.FC = () => {
     event.preventDefault();
 
     if (roomCode.trim() === '') {
+      toast.error('Enter some room code.');
       return;
     }
 
     const roomRef = await database.ref(`/rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      // eslint-disable-next-line
-      alert('Room does not exists.');
+      toast.error("This room doesn't exist.");
       return;
     }
 
     if (roomRef.val().endedAt) {
-      // eslint-disable-next-line
-      alert('Room already closed');
+      toast.error('This room has been closed.');
       return;
     }
 
@@ -60,20 +63,35 @@ const Auth: React.FC = () => {
           <SwitcherTheme />
         </AuthHeader>
         <CreateRoom onClick={handleCreateRoom} className="create-room">
-          <GoogleImage src={GoogleIcon} alt="Logo do Google" />
-          Crie sua sala com o Google
+          <GoogleImage src={GoogleIcon} alt="Google Logo" />
+          Create your room with Google
         </CreateRoom>
-        <Separator>ou entre em uma sala</Separator>
+        <Separator>or enter an existent room</Separator>
         <Form onSubmit={handleJoinRoom}>
           <CodeInput
             type="text"
-            placeholder="Digite o código da sala"
+            placeholder="Enter the room code"
             onChange={event => setRoomCode(event.target.value)}
             value={roomCode}
           />
-          <Button type="submit">Entrar na sala</Button>
+          <Button type="submit">Enter the room</Button>
         </Form>
+        <AllRooms>
+          Do you want see all rooms?
+          <AllRoomsButton onClick={() => history.push('/rooms')}>
+            click here
+          </AllRoomsButton>
+        </AllRooms>
       </Content>
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Authentication>
   );
 };

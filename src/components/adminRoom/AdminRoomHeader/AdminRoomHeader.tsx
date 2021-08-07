@@ -40,7 +40,7 @@ const AdminRoomHeader: React.FC<AdminRoomHeaderProps> = ({ roomId }) => {
         <Info>
           <RoomCode code={roomId} />
           <Button isOutlined onClick={handleEndRoom}>
-            Encerrar sala
+            Close room
           </Button>
         </Info>
       </Content>

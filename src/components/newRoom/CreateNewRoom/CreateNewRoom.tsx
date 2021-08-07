@@ -3,6 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { Button, LogoImage, SwitcherTheme } from 'src/components/common';
 import { useAuth } from 'src/hooks';
 import { database } from 'src/services/firebase';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
   Title,
@@ -22,6 +24,7 @@ const CreateNewRoom: React.FC = () => {
     event.preventDefault();
 
     if (newRoom.trim() === '') {
+      toast.error('Enter a name for the room.');
       return;
     }
 
@@ -41,20 +44,29 @@ const CreateNewRoom: React.FC = () => {
           <LogoImage />
           <SwitcherTheme />
         </CreateRoomHeader>
-        <Title>Criar uma nova sala</Title>
+        <Title>Create a new room</Title>
         <Form onSubmit={event => handleCreateRoom(event)}>
           <CodeInput
             type="text"
-            placeholder="Nome da sala"
+            placeholder="Room name"
             onChange={event => setNewRoom(event.target.value)}
             value={newRoom}
           />
-          <Button type="submit">Criar sala</Button>
+          <Button type="submit">Create room</Button>
         </Form>
         <Enter>
-          Que entrar em uma sala existente? <Link to="/"> clique aqui</Link>
+          To enter an existing room, <Link to="/">click here</Link>
         </Enter>
       </Content>
+      <ToastContainer
+        position="top-right"
+        autoClose={3500}
+        hideProgressBar
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Container>
   );
 };

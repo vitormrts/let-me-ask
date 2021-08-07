@@ -102,3 +102,17 @@ export const Separator = styled.div`
     margin: 16px 0;
   }
 `;
+
+export const AllRooms = styled.p`
+  margin-top: 16px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.input.default};
+`;
+
+export const AllRoomsButton = styled.button`
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  margin-left: 4px;
+  color: ${({ theme }) => theme.colors.pink};
+`;

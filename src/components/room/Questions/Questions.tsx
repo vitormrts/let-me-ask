@@ -40,7 +40,7 @@ const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
           <LikeButton
             liked={!!question.likeId}
             type="button"
-            aria-label="Marcar como gostei"
+            aria-label="Like this question"
             onClick={() => handleLikeQuestion(question.id, question.likeId)}
           >
             {question.likeCount > 0 && (

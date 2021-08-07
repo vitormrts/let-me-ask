@@ -254,10 +254,8 @@ const Aside: React.FC = () => {
           </svg>
         </ImageWrapper>
       )}
-      <Strong>Crie sala de Q&amp;A ao-vivo</Strong>
-      <AskQuestions>
-        Tire as duvidas da sua audiencia em tempo-real
-      </AskQuestions>
+      <Strong>Create live Q&amp;A room</Strong>
+      <AskQuestions>Ask your audience&apos;s doubts in real-time</AskQuestions>
     </Container>
   );
 };

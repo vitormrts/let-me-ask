@@ -7,9 +7,10 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const Button: React.FC<ButtonProps> = ({ isOutlined = false, ...props }) => (
   <StyledButton
-    type="submit"
+    // type="button"
     aria-label={props['aria-label']}
     isOutlined={isOutlined}
+    onClick={props.onClick}
   >
     {props.children}
   </StyledButton>
