@@ -21,8 +21,14 @@ export const Content = styled.div`
   text-align: center;
 `;
 
+export const AuthHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const CreateRoom = styled.button`
-  margin-top: 64px;
+  margin-top: 32px;
   height: 50px;
   border-radius: 8px;
   font-weight: 500;

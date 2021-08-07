@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { Button, LogoImage } from 'src/components/common';
+import { Button, LogoImage, SwitcherTheme } from 'src/components/common';
 import { useAuth } from 'src/hooks';
 import { database } from 'src/services/firebase';
 import {
@@ -9,7 +9,8 @@ import {
   Form,
   CodeInput,
   Content,
-  Enter
+  Enter,
+  CreateRoomHeader
 } from './CreateNewRoom.style';
 
 const CreateNewRoom: React.FC = () => {
@@ -36,7 +37,10 @@ const CreateNewRoom: React.FC = () => {
   return (
     <Container>
       <Content>
-        <LogoImage />
+        <CreateRoomHeader>
+          <LogoImage />
+          <SwitcherTheme />
+        </CreateRoomHeader>
         <Title>Criar uma nova sala</Title>
         <Form onSubmit={event => handleCreateRoom(event)}>
           <CodeInput

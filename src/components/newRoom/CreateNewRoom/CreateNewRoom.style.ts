@@ -8,7 +8,7 @@ export const Container = styled.main`
   align-items: center;
   justify-content: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding-bottom: 32px;
+    padding: 0 24px;
   }
 `;
 
@@ -23,6 +23,12 @@ export const Content = styled.div`
   a {
     color: ${({ theme }) => theme.colors.pink};
   }
+`;
+
+export const CreateRoomHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Title = styled.h2`

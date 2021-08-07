@@ -1,9 +1,10 @@
+import { Container as SwitcherTheme } from 'src/components/common/SwitcherTheme/SwitcherTheme.style';
 import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 export const Header = styled.header`
   padding: 24px;
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 1px solid ${({ theme }) => theme.header.default};
 `;
 
 export const Content = styled.div`
@@ -15,9 +16,14 @@ export const Content = styled.div`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     flex-direction: column;
   }
+  ${SwitcherTheme} {
+    margin-right: auto;
+  }
 `;
 
 export const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     margin-bottom: 16px;
   }
@@ -32,6 +38,7 @@ export const Info = styled.div`
   gap: 16px;
   button {
     height: 40px;
+    background-color: ${({ theme }) => theme.background.default};
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     flex-direction: column;

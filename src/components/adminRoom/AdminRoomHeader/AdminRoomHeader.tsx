@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button, RoomCode } from 'src/components/common';
-import LogoImg from 'src/assets/icons/logo.svg';
+import { Button, RoomCode, SwitcherTheme } from 'src/components/common';
+import IconLogoLight from 'src/assets/icons/logo-light.svg';
+import IconLogoDark from 'src/assets/icons/logo-dark.svg';
 import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
+import { useTheme } from 'styled-components';
 import {
   Content,
   Header,
@@ -17,6 +19,9 @@ type AdminRoomHeaderProps = {
 
 const AdminRoomHeader: React.FC<AdminRoomHeaderProps> = ({ roomId }) => {
   const history = useHistory();
+  const theme = useTheme();
+
+  const image = theme.title === 'light' ? IconLogoLight : IconLogoDark;
 
   const handleEndRoom = async () => {
     await database.ref(`rooms/${roomId}`).update({
@@ -29,7 +34,8 @@ const AdminRoomHeader: React.FC<AdminRoomHeaderProps> = ({ roomId }) => {
     <Header>
       <Content className="content">
         <LogoWrapper>
-          <Logo src={LogoImg} alt="Letmeask" />
+          <Logo src={image} alt="Letmeask" />
+          <SwitcherTheme />
         </LogoWrapper>
         <Info>
           <RoomCode code={roomId} />

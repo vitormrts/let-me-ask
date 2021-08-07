@@ -5,7 +5,7 @@ export const Button = styled.button`
   height: 40px;
   border-radius: 8px;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }) => theme.background.default};
   border: 1px solid ${({ theme }) => theme.colors.main};
   cursor: pointer;
   display: flex;
@@ -23,6 +23,7 @@ export const ImageWrapper = styled.div`
 export const Image = styled(DefaultImage)``;
 
 export const Room = styled.span`
+  color: ${({ theme }) => theme.text.main};
   display: block;
   align-self: center;
   flex: 1;

@@ -1,6 +1,8 @@
 import { DefaultTheme } from 'styled-components';
 
-const vanilla: DefaultTheme = {
+const light: DefaultTheme = {
+  title: 'light',
+
   breakpoints: {
     xl: 1199,
     lg: 991,
@@ -11,7 +13,7 @@ const vanilla: DefaultTheme = {
     secondary: '#fff'
   },
   colors: {
-    main: '#835afd',
+    main: '#296EB4',
     secondary: '#fff',
     pink: '#e559f9'
   },
@@ -30,7 +32,8 @@ const vanilla: DefaultTheme = {
     default: '#fefefe'
   },
   icons: {
-    google: '#ea4335'
+    google: '#ea4335',
+    logo: '#1789FC'
   },
   span: {
     default: '#737388'
@@ -40,4 +43,4 @@ const vanilla: DefaultTheme = {
   }
 };
 
-export default vanilla;
+export default light;

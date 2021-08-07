@@ -2,7 +2,7 @@ import React from 'react';
 import { Question } from 'src/components/common';
 import { useAuth, useRoom } from 'src/hooks';
 import { database } from 'src/services/firebase';
-import { LikeButton, QuestionList } from './Questions.style';
+import { LikeButton, LikeCount, QuestionList } from './Questions.style';
 
 type QuestionsProps = {
   roomId: string;
@@ -43,7 +43,9 @@ const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
             aria-label="Marcar como gostei"
             onClick={() => handleLikeQuestion(question.id, question.likeId)}
           >
-            {question.likeCount > 0 && <span>{question.likeCount}</span>}
+            {question.likeCount > 0 && (
+              <LikeCount>{question.likeCount}</LikeCount>
+            )}
             <svg
               width="24"
               height="24"

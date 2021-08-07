@@ -17,6 +17,11 @@ export const QuestionList = styled.div`
   }
 `;
 
+export const LikeCount = styled.span`
+  color: ${({ theme }) => theme.text.main};
+  margin-right: 8px;
+`;
+
 export const LikeButton = styled.button<LikeButtonProps>`
   display: flex;
   align-items: flex-end;
@@ -27,7 +32,7 @@ export const LikeButton = styled.button<LikeButtonProps>`
       css`
         color: ${({ theme }) => theme.colors.main};
         svg path {
-          stroke: ${({ theme }) => theme.colors.main};
+          stroke: ${({ theme }) => theme.text.main};
         }
       `};
 `;

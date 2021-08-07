@@ -2,6 +2,8 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    title: string;
+
     breakpoints: {
       xl: number;
       lg: number;
@@ -32,6 +34,7 @@ declare module 'styled-components' {
     };
     icons: {
       google: string;
+      logo: string;
     };
     span: {
       default: string;

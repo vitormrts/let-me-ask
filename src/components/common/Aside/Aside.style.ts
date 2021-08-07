@@ -1,4 +1,3 @@
-import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 export const Container = styled.aside`
@@ -18,7 +17,8 @@ export const Container = styled.aside`
     margin-bottom: 32px;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 40px 40px;
+    padding: 20px;
+    max-height: 200px;
   }
 `;
 export const AskQuestions = styled.p`
@@ -31,6 +31,7 @@ export const AskQuestions = styled.p`
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     font-size: 14px;
+    text-align: center;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     text-align: center;
@@ -39,13 +40,6 @@ export const AskQuestions = styled.p`
 
 export const ImageWrapper = styled.div`
   display: flex;
-`;
-
-export const Image = styled(DefaultImage)`
-  max-width: 320px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
-    max-width: 280px;
-  }
 `;
 
 export const Strong = styled.strong`
@@ -58,6 +52,7 @@ export const Strong = styled.strong`
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     margin-top: 0;
+    text-align: center;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     text-align: center;

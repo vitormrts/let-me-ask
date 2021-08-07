@@ -3,7 +3,7 @@ import GoogleIcon from 'src/assets/icons/google-icon.svg';
 import { useAuth } from 'src/hooks';
 import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
-import { Button, LogoImage } from 'src/components/common';
+import { Button, LogoImage, SwitcherTheme } from 'src/components/common';
 import {
   Authentication,
   Content,
@@ -11,7 +11,8 @@ import {
   CodeInput,
   CreateRoom,
   GoogleImage,
-  Separator
+  Separator,
+  AuthHeader
 } from './Auth.style';
 
 const Auth: React.FC = () => {
@@ -54,7 +55,10 @@ const Auth: React.FC = () => {
   return (
     <Authentication>
       <Content>
-        <LogoImage />
+        <AuthHeader>
+          <LogoImage />
+          <SwitcherTheme />
+        </AuthHeader>
         <CreateRoom onClick={handleCreateRoom} className="create-room">
           <GoogleImage src={GoogleIcon} alt="Logo do Google" />
           Crie sua sala com o Google
