@@ -10,7 +10,7 @@ const Aside: React.FC = () => {
 
   useLayoutEffect(() => {
     setIsDesktop(viewport > theme.breakpoints.lg);
-  }, [viewport]);
+  }, [theme, viewport]);
 
   return (
     <Container>

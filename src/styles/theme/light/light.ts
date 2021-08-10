@@ -23,7 +23,9 @@ const light: DefaultTheme = {
   },
   question: {
     answered: '#dbdcdd',
-    highlighted: '#f4f0ff'
+    highlighted: '#f4f0ff',
+    open: '#2DC03C',
+    closed: '#BF2C2C'
   },
   input: {
     default: '#a8a8b3'

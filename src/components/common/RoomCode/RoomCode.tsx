@@ -34,7 +34,6 @@ const RoomCode: React.FC<RoomCodeProps> = ({ code }) => {
         draggable
         pauseOnHover
       />
-      ;
     </Button>
   );
 };

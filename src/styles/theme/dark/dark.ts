@@ -23,7 +23,9 @@ const dark: DefaultTheme = {
   },
   question: {
     answered: '#2A394F',
-    highlighted: '#5D84B9'
+    highlighted: '#5D84B9',
+    open: '#2DC03C',
+    closed: '#BF2C2C'
   },
   input: {
     default: '#56749E'

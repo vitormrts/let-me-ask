@@ -25,6 +25,8 @@ declare module 'styled-components' {
     question: {
       answered: string;
       highlighted: string;
+      open: string;
+      closed: string;
     };
     input: {
       default: string;

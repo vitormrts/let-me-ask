@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { database } from 'src/services/firebase';
 import { useAuth } from 'src/hooks';
 
@@ -46,29 +46,32 @@ const useRoom = (roomId: string): RoomType => {
     questions: []
   });
 
-  const getParsedQuestions = (firebaseQuestions: FirebaseQuestions) => {
-    try {
-      const parsedQuestions = Object.entries(firebaseQuestions).map(
-        ([key, value]) => {
-          const { author, content, isAnswered, isHighlighted } = value;
-          return {
-            id: key,
-            content,
-            author,
-            isHighlighted,
-            isAnswered,
-            likeCount: Object.values(value.likes ?? {}).length,
-            likeId: Object.entries(value.likes ?? {}).find(
-              ([, like]) => like.authorId === user?.id
-            )?.[0]
-          };
-        }
-      );
-      return parsedQuestions;
-    } catch (error) {
-      return [];
-    }
-  };
+  const getParsedQuestions = useCallback(
+    (firebaseQuestions: FirebaseQuestions) => {
+      try {
+        const parsedQuestions = Object.entries(firebaseQuestions).map(
+          ([key, value]) => {
+            const { author, content, isAnswered, isHighlighted } = value;
+            return {
+              id: key,
+              content,
+              author,
+              isHighlighted,
+              isAnswered,
+              likeCount: Object.values(value.likes ?? {}).length,
+              likeId: Object.entries(value.likes ?? {}).find(
+                ([, like]) => like.authorId === user?.id
+              )?.[0]
+            };
+          }
+        );
+        return parsedQuestions;
+      } catch (error) {
+        return [];
+      }
+    },
+    [user]
+  );
 
   useEffect(() => {
     const roomRef = database.ref(`rooms/${roomId}`);
@@ -88,7 +91,7 @@ const useRoom = (roomId: string): RoomType => {
     return () => {
       roomRef.off('value');
     };
-  }, [roomId, user?.id]);
+  }, [getParsedQuestions, roomId, user]);
 
   return room;
 };
