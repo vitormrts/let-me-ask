@@ -114,5 +114,6 @@ export const AllRoomsButton = styled.button`
   background: transparent;
   border: none;
   margin-left: 4px;
+  cursor: pointer;
   color: ${({ theme }) => theme.colors.pink};
 `;

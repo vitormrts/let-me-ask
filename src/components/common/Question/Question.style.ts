@@ -34,7 +34,7 @@ export const Container = styled.div<ContainerProps>`
     isHighlighted &&
     !isAnswered &&
     css`
-      background: ${({ theme }) => theme.question.highlighted}
+      background: ${({ theme }) => theme.question.highlighted};
       border: 1px solid ${({ theme }) => theme.colors.main};
       ${Name} {
         color: ${({ theme }) => theme.text.main};

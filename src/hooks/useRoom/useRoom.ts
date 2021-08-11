@@ -18,6 +18,7 @@ type QuestionType = {
 type RoomType = {
   title: string;
   questions: Array<QuestionType>;
+  isLoading: boolean;
 };
 
 type FirebaseQuestions = Record<
@@ -43,7 +44,8 @@ const useRoom = (roomId: string): RoomType => {
   const { user } = useAuth();
   const [room, setRoom] = useState<RoomType>({
     title: '',
-    questions: []
+    questions: [],
+    isLoading: true
   });
 
   const getParsedQuestions = useCallback(
@@ -82,7 +84,8 @@ const useRoom = (roomId: string): RoomType => {
 
       const newRoom: RoomType = {
         title: databaseRoom.title ?? '',
-        questions: getParsedQuestions(firebaseQuestions)
+        questions: getParsedQuestions(firebaseQuestions),
+        isLoading: false
       };
 
       setRoom(newRoom);

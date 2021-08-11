@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import { Button } from 'src/components/common';
-import { useAuth } from 'src/hooks';
+import { useAuth, useRoom } from 'src/hooks';
 import { database } from 'src/services/firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,6 +22,7 @@ type FormQuestionProps = {
 const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
   const [newQuestion, setNewQuestion] = useState('');
   const { user } = useAuth();
+  const { isLoading } = useRoom(roomId);
 
   const handleSendQuestion = async (event: FormEvent) => {
     event.preventDefault();
@@ -57,12 +58,13 @@ const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
         value={newQuestion}
       />
       <FormFooter className="form-footer">
-        {user ? (
+        {user && (
           <UserInfo className="user-info">
             <IconAvatar src={user.avatar} alt={user.name} />
             <Name>{user.name}</Name>
           </UserInfo>
-        ) : (
+        )}
+        {!user && !isLoading && (
           <SendQuestion>
             To submit a question,
             <Login>login</Login>

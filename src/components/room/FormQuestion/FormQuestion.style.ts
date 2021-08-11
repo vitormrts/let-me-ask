@@ -34,6 +34,7 @@ export const FormFooter = styled.footer`
   align-items: center;
   margin-top: 16px;
   button {
+    margin-left: auto;
     @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
       padding: 0 16px;
       max-height: 36px;

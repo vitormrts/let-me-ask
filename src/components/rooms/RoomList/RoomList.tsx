@@ -57,7 +57,7 @@ const RoomList: React.FC = () => {
 
   useEffect(() => {
     const databaseRef = database.ref('rooms');
-    databaseRef.on('value', ref => {
+    databaseRef.once('value', ref => {
       const roomsValues: RoomsValues = ref.val();
       setRooms(getParsedRooms(roomsValues));
     });

@@ -7,13 +7,15 @@ type RoomTitleProps = {
 };
 
 const RoomTitle: React.FC<RoomTitleProps> = ({ roomId }) => {
-  const { title, questions } = useRoom(roomId);
+  const { title, questions, isLoading } = useRoom(roomId);
+
   return (
     <Container>
-      <Title>{title}</Title>
-      {questions.length > 0 && (
-        <LengthQuestions>{questions.length} questions</LengthQuestions>
-      )}
+      <Title>
+        {isLoading && ` Loading...`}
+        {title}
+      </Title>
+      <LengthQuestions>{questions.length} questions</LengthQuestions>
     </Container>
   );
 };
