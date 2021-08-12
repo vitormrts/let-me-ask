@@ -37,6 +37,11 @@ export const StatusContainer = styled.div`
   padding: 8px 0;
   margin-top: 16px;
   border-radius: 8px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    margin: 16px auto;
+    width: 183px;
+    height: 50px;
+  }
 `;
 
 export const StatusMessage = styled.span`
@@ -64,6 +69,9 @@ export const RoomContent = styled.div`
       margin-right: 16px;
     }
   }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    flex-direction: column;
+  }
 `;
 
 export const EnterImage = styled(DefaultImage)`
@@ -76,4 +84,7 @@ export const RoomName = styled.h3`
   font-size: 24px;
   color: ${({ theme }) => theme.text.main};
   width: 100%;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    text-align: center;
+  }
 `;
