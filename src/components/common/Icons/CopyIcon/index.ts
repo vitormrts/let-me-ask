@@ -1,3 +1,3 @@
-import CopyIcon from "./CopyIcon";
+import CopyIcon from './CopyIcon';
 
 export default CopyIcon;

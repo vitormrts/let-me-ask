@@ -1,4 +1,3 @@
-import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 type RoomItemProps = {
@@ -42,7 +41,7 @@ export const StatusContainer = styled.div`
   border-radius: 8px;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     margin: 16px auto;
-    width: 183px;
+    width: 156px;
     height: 50px;
   }
 `;
@@ -77,13 +76,10 @@ export const RoomContent = styled.div`
   }
 `;
 
-export const EnterImage = styled(DefaultImage)`
-  max-width: 24px;
-`;
-
 export const RoomInfo = styled.div``;
 
 export const RoomName = styled.h3`
+  font-weight: 500;
   font-size: 24px;
   color: ${({ theme }) => theme.text.main};
   width: 100%;

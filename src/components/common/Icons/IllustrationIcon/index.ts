@@ -1,3 +1,3 @@
-import IllustrationIcon from "./IllustrationIcon";
+import IllustrationIcon from './IllustrationIcon';
 
 export default IllustrationIcon;

@@ -37,7 +37,4 @@ export const StyledButton = styled.button<StyledButtonProps>`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     font-size: 14px;
   }
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    font-size: 12px;
-  }
 `;

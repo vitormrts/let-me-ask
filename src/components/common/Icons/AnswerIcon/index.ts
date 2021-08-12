@@ -1,3 +1,3 @@
-import AnswerIcon from "./AnswerIcon";
+import AnswerIcon from './AnswerIcon';
 
 export default AnswerIcon;

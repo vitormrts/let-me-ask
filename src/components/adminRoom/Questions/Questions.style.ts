@@ -1,4 +1,3 @@
-import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 export const Container = styled.div``;
@@ -15,5 +14,3 @@ export const QuestionList = styled.div`
 `;
 
 export const Button = styled.button``;
-
-export const Image = styled(DefaultImage)``;

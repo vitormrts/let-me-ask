@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Button } from 'src/components/common';
 import { database } from 'src/services/firebase';
-import EnterIcon from 'src/assets/icons/enter.png';
 import { useHistory } from 'react-router';
 import {
   Container,
@@ -11,7 +10,6 @@ import {
   Title,
   RoomName,
   RoomInfo,
-  EnterImage,
   StatusOpen,
   StatusClosed,
   StatusMessage
@@ -81,10 +79,7 @@ const RoomList: React.FC = () => {
             )}
           </RoomInfo>
           {isOpen && (
-            <Button onClick={() => handleEnterRoom(id)}>
-              <EnterImage src={EnterIcon} alt="Enter in the room" />
-              Enter the room
-            </Button>
+            <Button onClick={() => handleEnterRoom(id)}>Enter the room</Button>
           )}
         </RoomContent>
       </RoomItem>

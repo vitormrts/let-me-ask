@@ -1,5 +1,4 @@
 import { Container as SwitcherTheme } from 'src/components/common/SwitcherTheme/SwitcherTheme.style';
-import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 export const Header = styled.header`
@@ -24,11 +23,11 @@ export const Content = styled.div`
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 16px;
+  svg {
+    max-width: 100px;
+  }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     margin-bottom: 16px;
   }
-`;
-
-export const Logo = styled(DefaultImage)`
-  max-height: 45px;
 `;

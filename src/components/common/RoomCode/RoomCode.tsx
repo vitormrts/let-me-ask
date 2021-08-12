@@ -1,9 +1,9 @@
 import React from 'react';
-import CopyImg from 'src/assets/icons/copy.svg';
 import { copyToClipboard } from 'src/utils';
 import { ToastContainer, toast } from 'react-toastify';
 import { Button, ImageWrapper, Room } from './RoomCode.style';
 import 'react-toastify/dist/ReactToastify.css';
+import { CopyIcon } from '../Icons';
 
 type RoomCodeProps = {
   code: string;
@@ -22,7 +22,7 @@ const RoomCode: React.FC<RoomCodeProps> = ({ code }) => {
   return (
     <Button className="room-code" onClick={handleCopyRoomCodeToClipboard}>
       <ImageWrapper>
-        <img src={CopyImg} alt="Copy room code" />
+        <CopyIcon />
       </ImageWrapper>
       <Room>Room #{code}</Room>
       <ToastContainer

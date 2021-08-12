@@ -1,18 +1,17 @@
 import React, { FormEvent, useState } from 'react';
-import GoogleIcon from 'src/assets/icons/google-icon.svg';
 import { useAuth } from 'src/hooks';
 import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
 import { Button, LogoImage, SwitcherTheme } from 'src/components/common';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { GoogleIcon } from 'src/components/common/Icons';
 import {
   Authentication,
   Content,
   Form,
   CodeInput,
   CreateRoom,
-  GoogleImage,
   Separator,
   AuthHeader,
   AllRoomsButton,
@@ -63,7 +62,7 @@ const Auth: React.FC = () => {
           <SwitcherTheme />
         </AuthHeader>
         <CreateRoom onClick={handleCreateRoom} className="create-room">
-          <GoogleImage src={GoogleIcon} alt="Google Logo" />
+          <GoogleIcon />
           Create your room with Google
         </CreateRoom>
         <Separator>or enter an existent room</Separator>

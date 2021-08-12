@@ -1,4 +1,3 @@
-import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 export const ModalOverlay = styled.div`
@@ -63,8 +62,4 @@ export const CancelButton = styled(Button)`
 
 export const DeleteButton = styled(Button)`
   background-color: ${({ theme }) => theme.question.closed};
-`;
-
-export const TrashImage = styled(DefaultImage)`
-  max-width: 48px;
 `;

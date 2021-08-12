@@ -1,4 +1,3 @@
-import { DefaultImage } from 'src/styles/common';
 import styled from 'styled-components';
 
 export const Authentication = styled.main`
@@ -40,21 +39,20 @@ export const CreateRoom = styled.button`
   cursor: pointer;
   border: 0;
   transition: filter 0.2s;
+  svg {
+    margin-right: 16px;
+    max-width: 24px;
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+      max-width: 20px;
+      margin-right: 8px;
+    }
+  }
   &:hover {
     filter: brightness(0.9);
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
     margin-top: 24px;
     font-size: 14px;
-  }
-`;
-
-export const GoogleImage = styled(DefaultImage)`
-  margin-right: 16px;
-  max-width: 24px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    max-width: 20px;
-    margin-right: 8px;
   }
 `;
 

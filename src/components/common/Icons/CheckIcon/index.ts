@@ -1,3 +1,3 @@
-import CheckIcon from "./CheckIcon";
+import CheckIcon from './CheckIcon';
 
 export default CheckIcon;

@@ -1,5 +1,5 @@
 import React from 'react';
-import TrashImg from 'src/assets/icons/trash.svg';
+import { TrashIcon } from '../Icons';
 import {
   ButtonGroup,
   CancelButton,
@@ -8,8 +8,7 @@ import {
   DeleteTitle,
   ModalContainer,
   ModalContent,
-  ModalOverlay,
-  TrashImage
+  ModalOverlay
 } from './ModalDelete.style';
 
 type ModalDeleteProps = {
@@ -32,7 +31,7 @@ const ModalDelete: React.FC<ModalDeleteProps> = ({
       <ModalOverlay>
         <ModalContainer>
           <ModalContent>
-            <TrashImage src={TrashImg} alt="Delete question icon" />
+            <TrashIcon />
             <DeleteTitle>{title}</DeleteTitle>
             <DeleteMessage>{message}</DeleteMessage>
             <ButtonGroup>

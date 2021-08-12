@@ -1,3 +1,3 @@
-import EmptyQuestionIcon from "./EmptyQuestionIcon";
+import EmptyQuestionIcon from './EmptyQuestionIcon';
 
 export default EmptyQuestionIcon;

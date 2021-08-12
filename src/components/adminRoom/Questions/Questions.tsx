@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { ModalDelete, NoQuestions, Question } from 'src/components/common';
 import { useRoom } from 'src/hooks';
 import { database } from 'src/services/firebase';
-import DeleteImg from 'src/assets/icons/delete.svg';
-import CheckImg from 'src/assets/icons/check.svg';
-import AnswerImg from 'src/assets/icons/answer.svg';
-import { Button, Container, Image, QuestionList } from './Questions.style';
+import { AnswerIcon, CheckIcon, DeleteIcon } from 'src/components/common/Icons';
+import { Button, Container, QuestionList } from './Questions.style';
 
 type QuestionsProps = {
   roomId: string;
@@ -67,18 +65,18 @@ const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
               type="button"
               onClick={() => handleCheckQuestionAsAnwered(question.id)}
             >
-              <Image src={CheckImg} alt="Mark question as answered" />
+              <CheckIcon />
             </Button>
             <Button
               type="button"
               onClick={() => handleHighlightQuestion(question.id)}
             >
-              <Image src={AnswerImg} alt="Highlight the question" />
+              <AnswerIcon />
             </Button>
           </>
         )}
         <Button type="button" onClick={() => handleOpenModal(question.id)}>
-          <Image src={DeleteImg} alt="Delete question" />
+          <DeleteIcon />
         </Button>
       </Question>
     );

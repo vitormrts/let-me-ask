@@ -5,18 +5,11 @@ import {
   RoomCode,
   SwitcherTheme
 } from 'src/components/common';
-import IconLogoLight from 'src/assets/icons/logo-light.svg';
-import IconLogoDark from 'src/assets/icons/logo-dark.svg';
 import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
 import { useTheme } from 'styled-components';
-import {
-  Content,
-  Header,
-  LogoWrapper,
-  Logo,
-  Info
-} from './AdminRoomHeader.style';
+import { LogoDarkIcon, LogoLightIcon } from 'src/components/common/Icons';
+import { Content, Header, LogoWrapper, Info } from './AdminRoomHeader.style';
 
 type AdminRoomHeaderProps = {
   roomId: string;
@@ -29,7 +22,7 @@ const AdminRoomHeader: React.FC<AdminRoomHeaderProps> = ({ roomId }) => {
   const history = useHistory();
   const theme = useTheme();
 
-  const image = theme.title === 'light' ? IconLogoLight : IconLogoDark;
+  const LogoIcon = theme.title === 'light' ? LogoLightIcon : LogoDarkIcon;
 
   const handleOpenModal = () => {
     setModalTitle('End Room');
@@ -62,7 +55,7 @@ const AdminRoomHeader: React.FC<AdminRoomHeaderProps> = ({ roomId }) => {
       />
       <Content className="content">
         <LogoWrapper>
-          <Logo src={image} alt="Letmeask" />
+          <LogoIcon />
           <SwitcherTheme />
         </LogoWrapper>
         <Info>

@@ -1,9 +1,8 @@
 import React from 'react';
-import IconLogoLight from 'src/assets/icons/logo-light.svg';
-import IconLogoDark from 'src/assets/icons/logo-dark.svg';
 import { RoomCode, SwitcherTheme } from 'src/components/common';
+import { LogoDarkIcon, LogoLightIcon } from 'src/components/common/Icons';
 import { useTheme } from 'styled-components';
-import { Content, Header, Logo, LogoWrapper } from './RoomHeader.style';
+import { Content, Header, LogoWrapper } from './RoomHeader.style';
 
 type RoomHeaderProps = {
   roomId: string;
@@ -12,13 +11,13 @@ type RoomHeaderProps = {
 const RoomHeader: React.FC<RoomHeaderProps> = ({ roomId }) => {
   const theme = useTheme();
 
-  const image = theme.title === 'light' ? IconLogoLight : IconLogoDark;
+  const LogoIcon = theme.title === 'light' ? LogoLightIcon : LogoDarkIcon;
 
   return (
     <Header>
       <Content>
         <LogoWrapper>
-          <Logo src={image} alt="Letmeask" />
+          <LogoIcon />
           <SwitcherTheme />
         </LogoWrapper>
         <RoomCode code={roomId} />

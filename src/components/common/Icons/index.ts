@@ -1,9 +1,12 @@
-export { default as AnswerIcon} from './AnswerIcon'
-export { default as CheckIcon} from './CheckIcon'
-export { default as CopyIcon} from './CopyIcon'
-export { default as DeleteIcon} from './DeleteIcon'
-export { default as EmptyQuestionIcon} from './EmptyQuestionIcon'
-export { default as GoogleIcon} from './GoogleIcon'
-export { default as IllustrationIcon} from './IllustrationIcon'
-export { default as LikeIcon} from './LikeIcon'
-export { default as LogoIcon} from './LogoIcon'
+export { default as AnswerIcon } from './AnswerIcon';
+export { default as CheckIcon } from './CheckIcon';
+export { default as CopyIcon } from './CopyIcon';
+export { default as DeleteIcon } from './DeleteIcon';
+export { default as EmptyQuestionIcon } from './EmptyQuestionIcon';
+export { default as GoogleIcon } from './GoogleIcon';
+export { default as IllustrationIcon } from './IllustrationIcon';
+export { default as LikeIcon } from './LikeIcon';
+export { default as LogoIcon } from './LogoIcon';
+export { default as LogoLightIcon } from './LogoLightIcon';
+export { default as LogoDarkIcon } from './LogoDarkIcon';
+export { default as TrashIcon } from './TrashIcon';
