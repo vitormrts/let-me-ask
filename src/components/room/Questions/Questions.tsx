@@ -1,5 +1,5 @@
 import React from 'react';
-import { Question } from 'src/components/common';
+import { NoQuestions, Question } from 'src/components/common';
 import { useAuth, useRoom } from 'src/hooks';
 import { database } from 'src/services/firebase';
 import { LikeButton, LikeCount, QuestionList } from './Questions.style';
@@ -66,7 +66,15 @@ const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
       </Question>
     );
   });
-  return <QuestionList>{questionsMap}</QuestionList>;
+  return (
+    <>
+      {questions.length > 0 ? (
+        <QuestionList>{questionsMap}</QuestionList>
+      ) : (
+        <NoQuestions />
+      )}
+    </>
+  );
 };
 
 export default Questions;

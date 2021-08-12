@@ -15,6 +15,9 @@ export const Title = styled.h2`
   font-size: 32px;
   margin-top: 40px;
   color: ${({ theme }) => theme.text.main};
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    text-align: center;
+  }
 `;
 
 export const List = styled.ul`
@@ -45,7 +48,7 @@ export const StatusContainer = styled.div`
 `;
 
 export const StatusMessage = styled.span`
-  color: ${({ theme }) => theme.text.main};
+  color: white;
 `;
 
 export const StatusOpen = styled(StatusContainer)`

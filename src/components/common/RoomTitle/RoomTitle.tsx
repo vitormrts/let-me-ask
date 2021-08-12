@@ -15,7 +15,9 @@ const RoomTitle: React.FC<RoomTitleProps> = ({ roomId }) => {
         {isLoading && ` Loading...`}
         {title}
       </Title>
-      <LengthQuestions>{questions.length} questions</LengthQuestions>
+      {questions.length > 0 && (
+        <LengthQuestions>{questions.length} questions</LengthQuestions>
+      )}
     </Container>
   );
 };

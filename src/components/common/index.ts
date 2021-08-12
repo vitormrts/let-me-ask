@@ -7,3 +7,4 @@ export { default as LogoImage } from './LogoImage';
 export { default as RoomTitle } from './RoomTitle';
 export { default as SwitcherTheme } from './SwitcherTheme';
 export { default as ModalDelete } from './ModalDelete';
+export { default as NoQuestions } from './NoQuestions';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ModalDelete, Question } from 'src/components/common';
+import { ModalDelete, NoQuestions, Question } from 'src/components/common';
 import { useRoom } from 'src/hooks';
 import { database } from 'src/services/firebase';
 import DeleteImg from 'src/assets/icons/delete.svg';
@@ -93,7 +93,11 @@ const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
         handleCancel={handleCancelQuestion}
         handleDelete={handleDeleteQuestion}
       />
-      <QuestionList>{questionsMap}</QuestionList>
+      {questions.length > 0 ? (
+        <QuestionList>{questionsMap}</QuestionList>
+      ) : (
+        <NoQuestions />
+      )}
     </Container>
   );
 };
