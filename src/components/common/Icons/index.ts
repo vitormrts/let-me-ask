@@ -1,4 +1,6 @@
 export { default as AnswerIcon } from './AnswerIcon';
+export { default as ArrowLightIcon } from './ArrowLightIcon';
+export { default as ArrowDarkIcon } from './ArrowDarkIcon';
 export { default as CheckIcon } from './CheckIcon';
 export { default as CopyIcon } from './CopyIcon';
 export { default as DeleteIcon } from './DeleteIcon';

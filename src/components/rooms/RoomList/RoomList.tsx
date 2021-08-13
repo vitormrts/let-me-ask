@@ -4,6 +4,7 @@ import { database } from 'src/services/firebase';
 import { useHistory } from 'react-router';
 import {
   Container,
+  Content,
   RoomContent,
   RoomItem,
   Title,
@@ -53,11 +54,23 @@ const RoomList: React.FC = () => {
     }
   }, []);
 
+  const sortByStatus = (a: RoomType, b: RoomType) => {
+    if (a.endedAt !== '' && b.endedAt === '') {
+      return 1;
+    }
+    if (a.endedAt === '' && b.endedAt !== '') {
+      return -1;
+    }
+    return 0;
+  };
+
   useEffect(() => {
     const databaseRef = database.ref('rooms');
     databaseRef.once('value', ref => {
       const roomsValues: RoomsValues = ref.val();
-      setRooms(getParsedRooms(roomsValues));
+      const parsedRooms = getParsedRooms(roomsValues);
+      const sortedRooms = parsedRooms.sort(sortByStatus);
+      setRooms(sortedRooms);
     });
   }, [getParsedRooms]);
 
@@ -90,8 +103,10 @@ const RoomList: React.FC = () => {
 
   return (
     <Container>
-      <Title>Room list</Title>
-      <Rooms>{roomsMap}</Rooms>
+      <Content>
+        <Title>Room list</Title>
+        <Rooms>{roomsMap}</Rooms>
+      </Content>
     </Container>
   );
 };

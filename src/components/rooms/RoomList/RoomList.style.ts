@@ -5,9 +5,15 @@ type RoomItemProps = {
 };
 
 export const Container = styled.div`
+  padding: 0 32px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    padding: 0 16px;
+  }
+`;
+
+export const Content = styled.div`
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 32px;
 `;
 
 export const Title = styled.h2`
