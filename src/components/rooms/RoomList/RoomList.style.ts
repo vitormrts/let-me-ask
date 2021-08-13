@@ -19,16 +19,29 @@ export const Title = styled.h2`
   }
 `;
 
-export const List = styled.ul`
-  list-style: none;
+export const Rooms = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
-export const RoomItem = styled.li<RoomItemProps>`
+export const RoomItem = styled.div<RoomItemProps>`
   border-radius: 8px;
   background-color: ${({ isOpen, theme }) =>
     isOpen ? `${theme.background.secondary}` : `${theme.question.answered}`};
-  margin: 30px 0px;
   padding: 24px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 `;
 
 export const StatusContainer = styled.div`
@@ -37,17 +50,17 @@ export const StatusContainer = styled.div`
   justify-content: center;
   width: 120px;
   padding: 8px 0;
-  margin-top: 16px;
   border-radius: 8px;
+  height: 50px;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     margin: 16px auto;
     width: 156px;
-    height: 50px;
   }
 `;
 
 export const StatusMessage = styled.span`
   color: white;
+  font-size: 14px;
 `;
 
 export const StatusOpen = styled(StatusContainer)`
@@ -58,25 +71,29 @@ export const StatusClosed = styled(StatusContainer)`
   background-color: ${({ theme }) => theme.question.closed};
 `;
 
-export const RoomContent = styled.div`
+export const Info = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 16px;
   justify-content: space-between;
-  button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: auto;
-    img {
-      margin-right: 16px;
-    }
-  }
+  gap: 8px;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     flex-direction: column;
   }
 `;
 
-export const RoomInfo = styled.div``;
+export const RoomContent = styled.div`
+  button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    font-size: 14px;
+    img {
+      margin-right: 16px;
+    }
+  }
+`;
 
 export const RoomName = styled.h3`
   font-weight: 500;

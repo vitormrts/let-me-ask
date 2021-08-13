@@ -6,13 +6,13 @@ import {
   Container,
   RoomContent,
   RoomItem,
-  List,
   Title,
   RoomName,
-  RoomInfo,
+  Rooms,
   StatusOpen,
   StatusClosed,
-  StatusMessage
+  StatusMessage,
+  Info
 } from './RoomList.style';
 
 type RoomsValues = Record<
@@ -66,21 +66,23 @@ const RoomList: React.FC = () => {
     return (
       <RoomItem key={id} isOpen={isOpen}>
         <RoomContent>
-          <RoomInfo>
-            <RoomName>{title}</RoomName>
+          <RoomName>{title}</RoomName>
+          <Info>
             {isOpen ? (
-              <StatusOpen>
-                <StatusMessage>Open</StatusMessage>
-              </StatusOpen>
+              <>
+                <StatusOpen>
+                  <StatusMessage>Open</StatusMessage>
+                </StatusOpen>
+                <Button onClick={() => handleEnterRoom(id)}>
+                  Enter the room
+                </Button>
+              </>
             ) : (
               <StatusClosed>
                 <StatusMessage>Closed</StatusMessage>
               </StatusClosed>
             )}
-          </RoomInfo>
-          {isOpen && (
-            <Button onClick={() => handleEnterRoom(id)}>Enter the room</Button>
-          )}
+          </Info>
         </RoomContent>
       </RoomItem>
     );
@@ -89,7 +91,7 @@ const RoomList: React.FC = () => {
   return (
     <Container>
       <Title>Room list</Title>
-      <List>{roomsMap}</List>
+      <Rooms>{roomsMap}</Rooms>
     </Container>
   );
 };
