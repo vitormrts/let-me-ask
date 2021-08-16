@@ -1,17 +1,11 @@
+import { DefaultContainer, DefaultContent } from 'src/styles/common';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  padding: 0 32px;
+export const Container = styled(DefaultContainer)`
   margin-top: 32px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding: 0 24px;
-  }
 `;
 
-export const Content = styled.div`
-  max-width: 1120px;
-  margin: 0 auto;
-`;
+export const Content = styled(DefaultContent)``;
 
 export const BreadcrumbsNav = styled.nav``;
 

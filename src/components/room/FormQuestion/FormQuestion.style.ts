@@ -1,17 +1,15 @@
-import { DefaultImage } from 'src/styles/common';
+import {
+  DefaultContainer,
+  DefaultContent,
+  DefaultImage
+} from 'src/styles/common';
 import styled from 'styled-components';
 
-export const Form = styled.form`
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0px 32px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding: 0px 24px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 0px 16px;
-  }
-`;
+export const Container = styled(DefaultContainer)``;
+
+export const Content = styled(DefaultContent)``;
+
+export const Form = styled.form``;
 
 export const TextArea = styled.textarea`
   width: 100%;

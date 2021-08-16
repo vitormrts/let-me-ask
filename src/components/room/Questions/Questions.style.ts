@@ -1,20 +1,17 @@
+import { DefaultContainer, DefaultContent } from 'src/styles/common';
 import styled, { css } from 'styled-components';
 
 type LikeButtonProps = {
   readonly liked?: boolean;
 };
 
+export const Container = styled(DefaultContainer)``;
+
+export const Content = styled(DefaultContent)``;
+
 export const QuestionList = styled.div`
   margin: 24px auto 0px auto;
-  max-width: 1120px;
-  padding: 0px 32px;
   margin-bottom: 32px;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding: 0px 24px;
-  }
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 0px 16px;
-  }
 `;
 
 export const LikeCount = styled.span`

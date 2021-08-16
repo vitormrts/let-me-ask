@@ -1,23 +1,22 @@
 import React from 'react';
-import { useRoom } from 'src/hooks';
-import { Container, LengthQuestions, Title } from './RoomTitle.style';
+import { useRoom, useRoomId } from 'src/hooks';
+import { Container, Content, LengthQuestions, Title } from './RoomTitle.style';
 
-type RoomTitleProps = {
-  roomId: string;
-};
-
-const RoomTitle: React.FC<RoomTitleProps> = ({ roomId }) => {
+const RoomTitle: React.FC = () => {
+  const roomId = useRoomId();
   const { title, questions, isLoading } = useRoom(roomId);
 
   return (
     <Container>
-      <Title>
-        {isLoading && ` Loading...`}
-        {title}
-      </Title>
-      {questions.length > 0 && (
-        <LengthQuestions>{questions.length} questions</LengthQuestions>
-      )}
+      <Content>
+        <Title>
+          {isLoading && ` Loading...`}
+          {title}
+        </Title>
+        {questions.length > 0 && (
+          <LengthQuestions>{questions.length} questions</LengthQuestions>
+        )}
+      </Content>
     </Container>
   );
 };

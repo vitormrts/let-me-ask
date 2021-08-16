@@ -1,20 +1,21 @@
+import { DefaultContainer, DefaultContent } from 'src/styles/common';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 1120px;
+export const Container = styled(DefaultContainer)`
   margin: 32px auto;
-  display: flex;
-  padding: 0px 32px;
-  align-items: center;
+
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}px) {
-    padding: 0px 24px;
     margin: 24px auto;
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
-    padding: 0px 16px;
     justify-content: space-between;
     margin: 16px auto;
   }
+`;
+
+export const Content = styled(DefaultContent)`
+  display: flex;
+  align-items: center;
 `;
 
 export const Title = styled.h1`

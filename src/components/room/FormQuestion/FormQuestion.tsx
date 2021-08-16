@@ -1,10 +1,12 @@
 import React, { FormEvent, useState } from 'react';
 import { Button } from 'src/components/common';
-import { useAuth, useRoom } from 'src/hooks';
+import { useAuth, useRoom, useRoomId } from 'src/hooks';
 import { database } from 'src/services/firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
+  Container,
+  Content,
   Form,
   FormFooter,
   IconAvatar,
@@ -15,11 +17,8 @@ import {
   UserInfo
 } from './FormQuestion.style';
 
-type FormQuestionProps = {
-  roomId: string;
-};
-
-const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
+const FormQuestion: React.FC = () => {
+  const roomId = useRoomId();
   const [newQuestion, setNewQuestion] = useState('');
   const { user } = useAuth();
   const { isLoading } = useRoom(roomId);
@@ -51,39 +50,43 @@ const FormQuestion: React.FC<FormQuestionProps> = ({ roomId }) => {
   };
 
   return (
-    <Form onSubmit={handleSendQuestion}>
-      <TextArea
-        placeholder="What do you want to ask?"
-        onChange={event => setNewQuestion(event.target.value)}
-        value={newQuestion}
-      />
-      <FormFooter className="form-footer">
-        {user && (
-          <UserInfo className="user-info">
-            <IconAvatar src={user.avatar} alt={user.name} />
-            <Name>{user.name}</Name>
-          </UserInfo>
-        )}
-        {!user && !isLoading && (
-          <SendQuestion>
-            To submit a question,
-            <Login>login</Login>
-          </SendQuestion>
-        )}
-        <Button type="submit" disabled={!user}>
-          Submit question
-        </Button>
-      </FormFooter>
-      <ToastContainer
-        position="top-right"
-        autoClose={3500}
-        hideProgressBar
-        closeOnClick
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </Form>
+    <Container>
+      <Content>
+        <Form onSubmit={handleSendQuestion}>
+          <TextArea
+            placeholder="What do you want to ask?"
+            onChange={event => setNewQuestion(event.target.value)}
+            value={newQuestion}
+          />
+          <FormFooter className="form-footer">
+            {user && (
+              <UserInfo className="user-info">
+                <IconAvatar src={user.avatar} alt={user.name} />
+                <Name>{user.name}</Name>
+              </UserInfo>
+            )}
+            {!user && !isLoading && (
+              <SendQuestion>
+                To submit a question,
+                <Login>login</Login>
+              </SendQuestion>
+            )}
+            <Button type="submit" disabled={!user}>
+              Submit question
+            </Button>
+          </FormFooter>
+          <ToastContainer
+            position="top-right"
+            autoClose={3500}
+            hideProgressBar
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </Form>
+      </Content>
+    </Container>
   );
 };
 

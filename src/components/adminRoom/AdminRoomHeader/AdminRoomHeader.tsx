@@ -9,13 +9,11 @@ import { useHistory } from 'react-router';
 import { database } from 'src/services/firebase';
 import { useTheme } from 'styled-components';
 import { LogoDarkIcon, LogoLightIcon } from 'src/components/common/Icons';
+import { useRoomId } from 'src/hooks';
 import { Content, Header, LogoWrapper, Info } from './AdminRoomHeader.style';
 
-type AdminRoomHeaderProps = {
-  roomId: string;
-};
-
-const AdminRoomHeader: React.FC<AdminRoomHeaderProps> = ({ roomId }) => {
+const AdminRoomHeader: React.FC = () => {
+  const roomId = useRoomId();
   const [modalActive, setModalActive] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalMessage, setModalMessage] = useState('');

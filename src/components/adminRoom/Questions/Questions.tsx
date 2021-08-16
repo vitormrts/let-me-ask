@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { ModalDelete, NoQuestions, Question } from 'src/components/common';
-import { useRoom } from 'src/hooks';
+import { useRoom, useRoomId } from 'src/hooks';
 import { database } from 'src/services/firebase';
 import { AnswerIcon, CheckIcon, DeleteIcon } from 'src/components/common/Icons';
 import { Button, Container, QuestionList } from './Questions.style';
 
-type QuestionsProps = {
-  roomId: string;
-};
-
-const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
+const Questions: React.FC = () => {
+  const roomId = useRoomId();
   const [questionId, setQuestionId] = useState('');
   const [modalActive, setModalActive] = useState(false);
   const [modalTitle, setModalTitle] = useState('');

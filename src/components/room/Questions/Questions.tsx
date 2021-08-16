@@ -1,14 +1,17 @@
 import React from 'react';
 import { NoQuestions, Question } from 'src/components/common';
-import { useAuth, useRoom } from 'src/hooks';
+import { useAuth, useRoom, useRoomId } from 'src/hooks';
 import { database } from 'src/services/firebase';
-import { LikeButton, LikeCount, QuestionList } from './Questions.style';
+import {
+  LikeButton,
+  LikeCount,
+  QuestionList,
+  Container,
+  Content
+} from './Questions.style';
 
-type QuestionsProps = {
-  roomId: string;
-};
-
-const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
+const Questions: React.FC = () => {
+  const roomId = useRoomId();
   const { questions } = useRoom(roomId);
   const { user } = useAuth();
 
@@ -67,13 +70,15 @@ const Questions: React.FC<QuestionsProps> = ({ roomId }) => {
     );
   });
   return (
-    <>
-      {questions.length > 0 ? (
-        <QuestionList>{questionsMap}</QuestionList>
-      ) : (
-        <NoQuestions />
-      )}
-    </>
+    <Container>
+      <Content>
+        {questions.length > 0 ? (
+          <QuestionList>{questionsMap}</QuestionList>
+        ) : (
+          <NoQuestions />
+        )}
+      </Content>
+    </Container>
   );
 };
 
