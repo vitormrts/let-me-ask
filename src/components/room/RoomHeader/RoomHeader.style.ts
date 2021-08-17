@@ -31,3 +31,18 @@ export const LogoWrapper = styled.div`
     margin-bottom: 16px;
   }
 `;
+
+export const SeeAdminPanel = styled.div`
+  margin-left: auto;
+  margin-right: 16px;
+  button {
+    height: 40px;
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+      width: 276px;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    margin: 0;
+    margin-bottom: 16px;
+  }
+`;

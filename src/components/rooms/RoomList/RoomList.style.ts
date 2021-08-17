@@ -17,11 +17,12 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 32px;
+  font-size: 24px;
   margin-top: 40px;
   color: ${({ theme }) => theme.text.main};
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     text-align: center;
+    font-size: 18px;
   }
 `;
 
@@ -54,13 +55,13 @@ export const StatusContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  padding: 8px 0;
+  /* width: 120px; */
+  padding: 8px 24px;
   border-radius: 8px;
-  height: 50px;
+  /* height: 50px; */
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
     margin: 16px auto;
-    width: 156px;
+    /* width: 156px; */
   }
 `;
 
@@ -103,7 +104,7 @@ export const RoomContent = styled.div`
 
 export const RoomName = styled.h3`
   font-weight: 500;
-  font-size: 24px;
+  font-size: 16px;
   color: ${({ theme }) => theme.text.main};
   width: 100%;
   @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {

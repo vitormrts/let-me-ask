@@ -16,6 +16,7 @@ type QuestionType = {
 };
 
 type RoomType = {
+  authorId: string;
   title: string;
   questions: Array<QuestionType>;
   isLoading: boolean;
@@ -43,6 +44,7 @@ type FirebaseQuestions = Record<
 const useRoom = (roomId: string): RoomType => {
   const { user } = useAuth();
   const [room, setRoom] = useState<RoomType>({
+    authorId: '',
     title: '',
     questions: [],
     isLoading: true
@@ -83,6 +85,7 @@ const useRoom = (roomId: string): RoomType => {
       const firebaseQuestions: FirebaseQuestions = databaseRoom.questions;
 
       const newRoom: RoomType = {
+        authorId: databaseRoom.authorId,
         title: databaseRoom.title ?? '',
         questions: getParsedQuestions(firebaseQuestions),
         isLoading: false

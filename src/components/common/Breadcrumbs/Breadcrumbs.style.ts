@@ -20,8 +20,10 @@ export const BreadcrumbsItem = styled.li``;
 
 export const Home = styled.span`
   cursor: pointer;
+  font-size: 14px;
 `;
 
 export const Page = styled.span`
   opacity: 0.3;
+  font-size: 14px;
 `;
