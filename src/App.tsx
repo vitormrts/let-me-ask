@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'src/styles/GlobalStyle';
 import { AuthContextProvider } from './contexts';
 import { useSwitchTheme } from './hooks';
-import Routes from './routes';
+import { AppRoutes as Routes } from './routes';
 
 const App: React.FC = () => {
   const { theme } = useSwitchTheme();
@@ -12,11 +11,9 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <BrowserRouter>
-        <AuthContextProvider>
-          <Routes />
-        </AuthContextProvider>
-      </BrowserRouter>
+      <AuthContextProvider>
+        <Routes />
+      </AuthContextProvider>
     </ThemeProvider>
   );
 };
